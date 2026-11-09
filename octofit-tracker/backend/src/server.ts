@@ -31,4 +31,4 @@ app.use(
 
 app.listen(port, host, () => {
   console.log(`OctoFit API listening at ${baseUrl}`);
-});
+}); 
