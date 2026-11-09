@@ -159,6 +159,7 @@ async function seedDatabase() {
       ),
     ]);
 
+    console.log('Seed the octofit_db database with test data');
     console.log('Seeded users, teams, activities, leaderboard entries, and workouts');
     console.log('Database seeding complete');
   } catch (error) {
