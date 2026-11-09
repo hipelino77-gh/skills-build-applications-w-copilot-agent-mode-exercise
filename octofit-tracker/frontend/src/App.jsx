@@ -1,30 +1,37 @@
 import { NavLink, Route, Routes } from 'react-router-dom'
 import octofitLogo from '../../../docs/octofitapp-small.png'
+import Activities from './components/Activities.jsx'
+import Leaderboard from './components/Leaderboard.jsx'
+import Teams from './components/Teams.jsx'
+import Users from './components/Users.jsx'
+import Workouts from './components/Workouts.jsx'
 
 const sections = [
-  { path: '/', label: 'Overview' },
   { path: '/activities', label: 'Activities' },
   { path: '/teams', label: 'Teams' },
   { path: '/leaderboard', label: 'Leaderboard' },
+  { path: '/users', label: 'People' },
   { path: '/workouts', label: 'Workouts' },
 ]
 
 function App() {
   return (
-    <div className="min-vh-100 bg-body-tertiary">
-      <header className="border-bottom bg-white">
-        <div className="container d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 py-3">
-          <div className="d-flex align-items-center gap-2">
-            <img src={octofitLogo} alt="" width="44" height="44" />
-            <span className="fs-4 fw-semibold">OctoFit Tracker</span>
+    <div className="tracker-shell">
+      <header className="tracker-header">
+        <div className="container-xxl d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-3 py-3">
+          <div className="d-flex align-items-center gap-3">
+            <img className="tracker-logo" src={octofitLogo} alt="" width="46" height="46" />
+            <div>
+              <span className="tracker-brand">OctoFit</span>
+              <span className="tracker-brand-subtitle"> / TEAM TRACKER</span>
+            </div>
           </div>
-          <nav className="nav nav-underline flex-wrap ms-md-auto" aria-label="Main navigation">
+          <nav className="tracker-nav ms-lg-auto" aria-label="Main navigation">
             {sections.map(({ path, label }) => (
               <NavLink
                 key={path}
                 to={path}
-                end={path === '/'}
-                className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+                className={({ isActive }) => `tracker-nav-link${isActive ? ' active' : ''}`}
               >
                 {label}
               </NavLink>
@@ -32,14 +39,23 @@ function App() {
           </nav>
         </div>
       </header>
-      <main className="container py-4">
+      <main className="container-xxl tracker-main py-4 py-lg-5">
         <Routes>
-          {sections.map(({ path, label }) => (
-            <Route key={path} path={path} element={<h1 className="h3">{label}</h1>} />
-          ))}
-          <Route path="*" element={<h1 className="h3">Not found</h1>} />
+          <Route path="/" element={<Activities />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/workouts" element={<Workouts />} />
+          <Route path="*" element={<h1 className="h3">Page not found</h1>} />
         </Routes>
       </main>
+      <footer className="tracker-footer">
+        <div className="container-xxl d-flex justify-content-between gap-3 py-3">
+          <span>Move together. Get stronger.</span>
+          <span>OCTOFIT TRACKER</span>
+        </div>
+      </footer>
     </div>
   )
 }
