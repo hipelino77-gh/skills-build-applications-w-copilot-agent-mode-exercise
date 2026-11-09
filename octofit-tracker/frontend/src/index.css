@@ -1,0 +1,31 @@
+:root {
+  font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  color: #20352d;
+  background: #f2f5ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --tracker-ink: #20352d;
+  --tracker-muted: #68796f;
+  --tracker-green: #176b53;
+  --tracker-coral: #cc5d45;
+  --tracker-line: #dce4d9;
+  --tracker-white: #fff;
+  --tracker-display: Georgia, 'Times New Roman', serif;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f2f5ef;
+  background-image: linear-gradient(#ffffff70 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff70 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+button,
+a { -webkit-tap-highlight-color: transparent; }
+
+::selection { color: #fff; background: var(--tracker-green); }
